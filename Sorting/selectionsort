@@ -1,0 +1,47 @@
+public class selectionsort {
+    public static void main(String[] args) {
+
+        int nums[] = {6, 5, 2, 8, 9, 4};
+        int size = nums.length;
+        int temp = 0;
+        int minIndex = -1;
+
+        System.out.println("Before Sorting");
+        for (int num : nums) {
+            System.out.print(num + " ");
+        }
+
+        System.out.println();
+
+        // Selection Sort
+        for (int i = 0; i < size - 1; i++) {
+
+            // Assume current index is minimum
+            minIndex = i;
+
+            for (int j = i + 1; j < size; j++) {
+
+                if (nums[minIndex] > nums[j]) {
+                    minIndex = j;
+                }
+            }
+
+            // Swap
+            temp = nums[minIndex];
+            nums[minIndex] = nums[i];
+            nums[i] = temp;
+
+            // Print after every pass
+            System.out.print("After Pass " + (i + 1) + ": ");
+            for (int num : nums) {
+                System.out.print(num + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("After Sorting");
+        for (int num : nums) {
+            System.out.print(num + " ");
+        }
+    }
+}
